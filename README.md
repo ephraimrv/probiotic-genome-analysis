@@ -177,7 +177,6 @@ R/
 docs/
   00_input_inventory.md      the source files, what each is, and which are used
   01_annotation_runbook.md   Bakta, antiSMASH and BAGEL4 procedure
-  02_migration.md            moving the repository between machines
 data/
   raw/                   source files, not committed; see data/raw/README.md
   annotation/            Bakta, antiSMASH, BAGEL4, InterProScan output; not committed
