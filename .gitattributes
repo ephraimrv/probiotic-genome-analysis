@@ -1,0 +1,29 @@
+# Enforce LF endings on everything executed by a shell or an interpreter.
+# The working copy crosses from Windows to Linux; a CRLF shebang line produces
+# "bad interpreter: /usr/bin/env bash^M", which is obscure and easy to misread
+# as a missing dependency.
+* text=auto eol=lf
+*.sh   text eol=lf
+*.py   text eol=lf
+*.R    text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.cff  text eol=lf
+
+# Generated tables and SVG figures are stored byte for byte. The csv module
+# writes CRLF row endings, and R on Windows may too; converting them would make
+# every regenerated file differ from its committed copy.
+*.csv  -text
+*.svg  -text
+
+# Binary; never subject to end-of-line conversion.
+*.png  binary
+*.pdf  binary
+*.sqn  binary
+*.fasta binary
+*.fna  binary
+*.faa  binary
+*.ffn  binary
+*.gbf  binary
+*.gbff binary

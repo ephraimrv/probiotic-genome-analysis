@@ -1,0 +1,21 @@
+# Conda environment for the Python half of this pipeline (WSL2).
+#   conda env create -f environment.yml
+#   conda activate s1a-figures
+#
+# Versions are the ones the archived figures were produced with. Bakta,
+# antiSMASH, QUAST, CheckM2 and fastANI are NOT included here -- they are
+# heavyweight annotation tools with their own databases and belong in a
+# separate environment. See docs/01_annotation_runbook.md.
+name: s1a-figures
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - biopython=1.88
+  - pandas=3.0.6
+  - numpy=2.5.3
+  - matplotlib=3.11.2
+  - requests=2.34.2
+  - pip
+  - pip:
+      - pycirclize==1.10.1
