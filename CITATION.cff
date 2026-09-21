@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite this software, and any figure derived from it, as below."
+title: "S1A genome visualisation and regulator analysis"
+abstract: >-
+  Reproducible pipeline for the circular genome map, bacteriocin locus diagram
+  and predicted transcription-factor family chart of the Lacticaseibacillus
+  strain S1A draft genome, produced as a figure contribution to a study of
+  probiotic-loaded hydrogels.
+type: software
+authors:
+  - given-names: "Jan Ephraim R."
+    family-names: "Vallente"
+    orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: replace with the author ORCID
+    affiliation: ""                                   # TODO: institution
+version: "1.0.0"
+date-released: "2026-09-19"                           # TODO date of the tagged release
+license: MIT
+repository-code: "https://github.com/USERNAME/s1a-genome-figures"   # TODO
+keywords:
+  - bacteriocin
+  - comparative genomics
+  - Lacticaseibacillus
+  - genome visualisation
+  - transcription factors
+  - probiotics
