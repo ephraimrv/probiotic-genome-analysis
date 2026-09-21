@@ -29,12 +29,17 @@ TABLES = RESULTS / "tables"
 FIGURES = RESULTS / "figures"
 QC = RESULTS / "qc"
 
+#: Raw data is organised per strain: data/raw/<STRAIN>/. The constants below
+#: resolve to S1A, which is the pipeline's present behaviour; the --strain
+#: refactor replaces them with per-strain resolution.
+RAW_S1A = RAW / "S1A"
+
 #: Assembly as delivered by SPAdes, before length filtering.
-RAW_ASSEMBLY = RAW / "assembly" / "S1A_spades_contigs.fasta"
+RAW_ASSEMBLY = RAW_S1A / "assembly" / "S1A_spades_contigs.fasta"
 
 #: The 2024 Prokka annotation. Superseded by Bakta once that run exists, but
 #: retained as the fallback so the pipeline is runnable from a fresh clone.
-PROKKA_GENBANK = RAW / "annotation_prokka_2024-03" / "S1A_prokka.gbf"
+PROKKA_GENBANK = RAW_S1A / "annotation_prokka_2024-03" / "S1A_prokka.gbf"
 PROKKA_CONTIG_MAP = INTERIM / "prokka_contig_map.csv"
 
 #: Expected locations of the annotation and cluster-detection outputs.
