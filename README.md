@@ -177,6 +177,7 @@ R/
 docs/
   00_input_inventory.md      the source files, what each is, and which are used
   01_annotation_runbook.md   Bakta, antiSMASH and BAGEL4 procedure
+  02_migration.md            moving the repository between machines
 data/
   raw/                   source files, not committed; see data/raw/README.md
   annotation/            Bakta, antiSMASH, BAGEL4, InterProScan output; not committed
@@ -250,8 +251,8 @@ described in `docs/01_annotation_runbook.md`.
 | | |
 |---|---|
 | Annotation | Prokka 1.11, run without `--genus`/`--species`, 10 March 2024 |
-| Annotation file | `data/raw/annotation_prokka_2024-03/S1A_prokka.gbf` |
-| Assembly input | `data/raw/assembly/S1A_spades_contigs.fasta`, 101 SPAdes sequences filtered to 57 at ≥ 200 bp |
+| Annotation file | `data/raw/S1A/annotation_prokka_2024-03/S1A_prokka.gbf` |
+| Assembly input | `data/raw/S1A/assembly/S1A_spades_contigs.fasta`, 101 SPAdes sequences filtered to 57 at ≥ 200 bp |
 | GC window | 5,000 bp, non-overlapping |
 | Python | 3.12.14 — biopython 1.88, pandas 3.0.6, numpy 2.5.3, matplotlib 3.11.2, pycirclize 1.10.1 |
 | R | 4.5.3 — ggplot2 4.0.3, gggenes 0.7.0, dplyr 1.2.1, readr 2.2.0, ggrepel 0.9.8 |

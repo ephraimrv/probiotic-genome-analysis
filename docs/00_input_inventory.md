@@ -14,10 +14,10 @@ mapping, with SHA-256 digests and original timestamps, is in
 
 | Purpose | File |
 |---|---|
-| Gene features for the circular map | `data/raw/annotation_prokka_2024-03/S1A_prokka.gbf` |
+| Gene features for the circular map | `data/raw/S1A/annotation_prokka_2024-03/S1A_prokka.gbf` |
 | Sequence for GC content and GC skew | the same file |
-| Proteome for transcription-factor classification | `data/raw/annotation_prokka_2024-03/S1A_prokka.faa` |
-| Input for Bakta re-annotation | `data/raw/assembly/S1A_spades_contigs.fasta` |
+| Proteome for transcription-factor classification | `data/raw/S1A/annotation_prokka_2024-03/S1A_prokka.faa` |
+| Input for Bakta re-annotation | `data/raw/S1A/assembly/S1A_spades_contigs.fasta` |
 
 The remaining thirteen files are duplicates, NCBI submission byproducts or run
 logs. They are retained for completeness and excluded from version control.

@@ -14,7 +14,7 @@ use the current annotation rather than the archived Prokka one.
 | `interproscan/S1A.faa.tsv` | InterProScan 5 | `classify_tfs.py` |
 
 In the absence of `bakta/S1A.gbff` the pipeline falls back to the archived
-Prokka annotation in `data/raw/annotation_prokka_2024-03/`. Every script prints
+Prokka annotation in `data/raw/S1A/annotation_prokka_2024-03/`. Every script prints
 the annotation it read, so the fallback is recorded in the run output rather
 than passing unnoticed.
 
