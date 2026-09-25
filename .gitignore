@@ -49,3 +49,6 @@ renv/staging/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Local working documents, deliberately not published
+RELEASE.md
