@@ -1,0 +1,116 @@
+# Continuous integration.
+#
+# What this proves: that the environment pinned in environment.yml still
+# resolves, and that every module under scripts/ imports against the versions
+# it resolves to. What it does not prove: anything about the figures. The
+# genome data is excluded from version control, so the pipeline cannot run
+# here. See docs/03_continuous_integration.md.
+#
+# The environment solve is deliberately NOT cached. Caching it keyed on the
+# file hash would make repeat runs fast, but the solve succeeding is the thing
+# being tested, and a cache hit would report success without testing it.
+#
+# The action version tags below were written without access to GitHub and are
+# therefore unverified. A wrong tag fails the run immediately with an explicit
+# "Unable to resolve action" message, so the first run is the check.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  environment:
+    name: Environment solve and import check
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        # A login shell is required for the conda activation performed by
+        # setup-miniconda to be in effect in each subsequent step. Without -l
+        # the activation does not persist and every python call would use the
+        # runner's system interpreter instead of the pinned environment.
+        shell: bash -el {0}
+
+    env:
+      # matplotlib must not attempt to open a display on a headless runner.
+      MPLBACKEND: Agg
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Create the pinned environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: s1a-figures
+          miniforge-version: latest
+          auto-activate-base: false
+
+      - name: Record the resolved versions
+        run: |
+          conda list --explicit > conda-list-explicit.txt
+          conda list > conda-list.txt
+          python --version
+          echo "--- resolved versions of the pinned packages ---"
+          grep -E '^(python|biopython|pandas|numpy|matplotlib|requests|pycirclize|pytest|ruff|mypy|isort|pyflakes) ' conda-list.txt
+
+      - name: Import every module under scripts/
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import pathlib
+          import sys
+          import traceback
+
+          scripts = pathlib.Path("scripts")
+          sys.path.insert(0, str(scripts.resolve()))
+
+          modules = sorted(scripts.glob("*.py"))
+          failed = []
+          for path in modules:
+              spec = importlib.util.spec_from_file_location(path.stem, path)
+              module = importlib.util.module_from_spec(spec)
+              try:
+                  # Every script guards its entry point with
+                  # __name__ == "__main__", so executing the module defines
+                  # its functions and constants without running a pipeline
+                  # step.
+                  spec.loader.exec_module(module)
+              except Exception:
+                  failed.append(path.name)
+                  print(f"FAIL {path.name}")
+                  traceback.print_exc()
+              else:
+                  print(f"ok   {path.name}")
+
+          if failed:
+              raise SystemExit(f"{len(failed)} module(s) failed to import: {failed}")
+          print(f"all {len(modules)} modules imported")
+          PY
+
+      # Uncomment when tests/ arrives with row 2 of the adoption sequence.
+      # This is left commented rather than made conditional on tests/ existing:
+      # a job that skips its tests when it cannot find them reports success
+      # without having tested anything, which is the one failure mode a build
+      # status must never have.
+      #
+      # - name: Run the test suite
+      #   run: python -m pytest -q
+
+      - name: Upload the resolved environment
+        # Runs even when an earlier step failed, because a failed solve is
+        # exactly when a partial package list is worth reading.
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolved-environment
+          path: |
+            conda-list.txt
+            conda-list-explicit.txt
+          if-no-files-found: warn

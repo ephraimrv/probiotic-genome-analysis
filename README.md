@@ -18,6 +18,14 @@ establishes capacity, not behaviour, and the figures are captioned accordingly.
 
 ## Status
 
+[![CI](https://github.com/ephraimrv/probiotic-genome-analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/ephraimrv/probiotic-genome-analysis/actions/workflows/ci.yml)
+
+The badge reports one thing: that the environment pinned in `environment.yml`
+still resolves and that every module under `scripts/` imports against it. It
+says nothing about the figures, because the genome data is excluded from version
+control and the pipeline cannot run in continuous integration. A green badge means that the environment installs
+and the code imports; it does not mean that a figure has been reproduced.
+
 The archived figures were generated from a Prokka 1.11 annotation produced in
 March 2024 without taxonomic parameters. They are structurally correct and
 publication-grade in form, but the gene product names behind them are dated.
