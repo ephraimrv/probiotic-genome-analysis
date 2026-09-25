@@ -1,0 +1,31 @@
+tf_family,direct_domain,homology_domain,product_name,none,total,in_bacteriocin_locus
+unassigned family,0,0,0,46,46,2
+XRE/Cro-CI,15,4,0,0,19,2
+GntR,0,16,0,0,16,1
+PRD antiterminator (BglG/MtlR),0,14,0,0,14,1
+OmpR/PhoB response regulator,0,11,0,0,11,0
+DeoR,0,10,0,0,10,0
+LysR,0,9,0,0,9,0
+TetR/AcrR,0,6,1,0,7,0
+LacI/GalR,0,5,0,0,5,0
+MerR,0,5,0,0,5,0
+Mga/PRD virulence regulator,0,0,5,0,5,0
+"winged HTH, family unresolved",0,5,0,0,5,0
+ArsR/SmtB,0,3,0,0,3,0
+MarR,0,2,1,0,3,0
+PadR,3,0,0,0,3,0
+AraC/XylS,0,2,0,0,2,0
+Crp/Fnr,0,2,0,0,2,0
+Fur/Zur/PerR,0,2,0,0,2,0
+LexA,0,1,1,0,2,0
+LytTR,0,2,0,0,2,1
+NarL/FixJ response regulator,0,2,0,0,2,0
+Spx,0,0,2,0,2,0
+response regulator (receiver only),0,2,0,0,2,0
+sigma factor,0,2,0,0,2,0
+BlaI/MecI,0,1,0,0,1,0
+CtsR,0,1,0,0,1,0
+HrcA,0,1,0,0,1,0
+NrdR,0,0,1,0,1,0
+TrmB,1,0,0,0,1,0
+WhiA,0,1,0,0,1,0

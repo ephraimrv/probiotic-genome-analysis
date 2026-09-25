@@ -1,0 +1,9 @@
+confidence,locus_id,contig_id,start,end,length_bp,n_genes,n_seed_genes,n_precursor,n_immunity,n_transport,n_processing,n_regulator,n_unknown,caller,seed_products
+low,BGC_01,S1A_contig_001,109842,120919,11077,14,1,0,1,0,0,0,6,annotation_prescan,Microcin C7 self-immunity protein MccF
+low,BGC_02,S1A_contig_001,172519,183173,10654,13,1,0,1,0,0,0,3,annotation_prescan,CAAX amino terminal protease self- immunity
+medium,BGC_03,S1A_contig_001,190332,202801,12469,17,2,0,2,0,0,1,9,annotation_prescan,CAAX amino terminal protease self- immunity
+low,BGC_04,S1A_contig_001,221013,231871,10858,10,1,0,1,0,0,0,5,annotation_prescan,CAAX amino terminal protease self- immunity
+medium,BGC_05,S1A_contig_001,470813,481068,10255,13,1,1,0,0,0,1,4,annotation_prescan,Bacteriocin class II with double-glycine leader peptide
+low,BGC_06,S1A_contig_001,542754,553399,10645,9,1,0,1,0,0,1,1,annotation_prescan,CAAX amino terminal protease self- immunity
+low,BGC_07,S1A_contig_003,96562,107207,10645,11,1,0,1,0,0,0,1,annotation_prescan,CAAX amino terminal protease self- immunity
+high,BGC_08,S1A_contig_008,20753,49005,28252,37,7,2,5,2,0,3,19,annotation_prescan,Bacteriocin class II with double-glycine leader peptide | CAAX amino terminal protease self- immunity | Enterocin A Immunity | Putative carnobacteriocin-B2 immunity protein

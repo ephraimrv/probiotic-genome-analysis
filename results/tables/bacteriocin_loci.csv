@@ -1,0 +1,4 @@
+locus_id,contig_id,start,end,confidence,label
+BGC_03,S1A_contig_001,190332,202801,medium,BGC_03
+BGC_05,S1A_contig_001,470813,481068,medium,BGC_05
+BGC_08,S1A_contig_008,20753,49005,high,BGC_08
